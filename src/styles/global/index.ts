@@ -9,6 +9,7 @@ export const GlobalStyles = css`
   :root {
     --white: #ffffff;
     --black: #000000;
+    --black-600: #2B2C37;
 
     --green: #50ff8c;
     --red: #cb3837;
