@@ -1,12 +1,16 @@
+// styles
 import { Global } from '@emotion/react'
 import { GlobalStyles } from './styles/global';
+
+// pages
+import { Home } from './pages/home';
 
 
 function App() {
   return (
     <>
       <Global styles={GlobalStyles}/>
-      <h1>Hello</h1>
+      <Home />
     </>
   );
 }
