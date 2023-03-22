@@ -34,6 +34,7 @@ export const HeaderContent = styled.div`
 export const Divider = styled.div`
   border-left: 2px solid var(--white);
   margin-right: 10px;
+  margin-left: 10px;
 `;
 
 export const ContainerAddress = styled.div`
@@ -41,10 +42,15 @@ export const ContainerAddress = styled.div`
   margin-left: 0 auto;
 
   p{
+    display: flex;
+    font-weight: 700;
+
     color: var(--green);
     background: var(--black-600);
     padding: 8px;
 
-    border-radius: 15px;
+    border-radius: 25px;
+    justify-content: center;
+    align-items: center;
   }
 `;
