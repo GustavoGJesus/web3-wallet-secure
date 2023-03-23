@@ -38,3 +38,15 @@ export const Button = styled.button`
   border-radius: 30px;
   font-weight: 600;
 `;
+
+export const Input = styled.input`
+  padding: 15px;
+  font-size: 13px;
+  border-radius: 10px;
+
+  border: 1px solid var(--black);
+  outline: none;
+
+  background: transparent;
+  color: var(--white);
+`;

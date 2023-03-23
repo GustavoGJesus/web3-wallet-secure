@@ -1,8 +1,9 @@
 // react or any libs related content
 import { ReactNode } from "react";
+import { Box, Container } from "./styles";
 
 // styles
-import { Box, Container } from "../modal/styles";
+
 
 // interfaces
 interface ModalType {

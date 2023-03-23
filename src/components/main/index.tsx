@@ -1,5 +1,5 @@
 // styles
-import { Button, MainContainer, MainContent } from "./styles";
+import { Button, Input, MainContainer, MainContent } from "./styles";
 
 //components
 import useModal from "../../hooks/modal/useModal";
@@ -19,7 +19,12 @@ export function Main() {
       </MainContent>
 
       <Modal isOpen={isOpen} toggle={toggle}>
-        <h1>Hello</h1>
+        <h4 style={{ fontSize: "25px"}}>Create a new wallet</h4>
+
+        <div style={{ display: "flex", gap: "10px", flexDirection: "column"}}>
+          <p style={{ opacity: "0.5", fontSize: "16px", color: "var(--green)"}}>Wallet password</p>
+          <Input type="password" placeholder="password" />
+        </div>
       </Modal>
     </MainContainer>
   );
