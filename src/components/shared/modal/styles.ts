@@ -18,13 +18,13 @@ export const Container = styled.div`
 export const Box = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  background: #fff;
-  color: #000;
+  gap: 20px;
+  background: var(--black-600);
+  color: var(--white);
   font-weight: 600;
   justify-content: center;
   /* align-items: center; */
-  width: auto;
+  width: 500px;
   height: auto;
   padding: 2rem;
   border-radius: 1rem;
