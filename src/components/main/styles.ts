@@ -44,9 +44,11 @@ export const Input = styled.input`
   font-size: 13px;
   border-radius: 10px;
 
-  border: 1px solid var(--black);
+  border: 1px solid var(--white);
   outline: none;
 
   background: transparent;
   color: var(--white);
+
+  font-family: Fira Code;
 `;

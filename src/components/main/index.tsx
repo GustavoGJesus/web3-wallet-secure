@@ -8,6 +8,11 @@ import Modal from "../shared/modal";
 export function Main() {
   const { isOpen, toggle } = useModal();
 
+  function Teste() {
+    console.log('criar wallet')
+    toggle();
+  }
+
   return (
     <MainContainer>
       <MainContent>
@@ -19,12 +24,18 @@ export function Main() {
       </MainContent>
 
       <Modal isOpen={isOpen} toggle={toggle}>
-        <h4 style={{ fontSize: "25px"}}>Create a new wallet</h4>
+        <h4 style={{ fontSize: "25px" }}>Create a new wallet</h4>
 
-        <div style={{ display: "flex", gap: "10px", flexDirection: "column"}}>
-          <p style={{ opacity: "0.5", fontSize: "16px", color: "var(--green)"}}>Wallet password</p>
-          <Input type="password" placeholder="password" />
+        <div style={{ display: "flex", gap: "10px", flexDirection: "column" }}>
+          <p
+            style={{ opacity: "0.5", fontSize: "16px", color: "var(--green)" }}
+          >
+            Wallet password
+          </p>
+          <Input type="password" placeholder="Password" />
         </div>
+
+        <Button onClick={Teste} style={{ padding: "15px", fontSize: "13px"}}>Create wallet</Button>
       </Modal>
     </MainContainer>
   );
