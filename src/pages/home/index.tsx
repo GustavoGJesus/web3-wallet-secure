@@ -7,7 +7,7 @@ import { Main } from "../../components/main";
 export function Home(){
     return(
       <>
-        <Header />
+        {/* <Header address="Gustavo"/> */}
         <Main />
       </>
     );
