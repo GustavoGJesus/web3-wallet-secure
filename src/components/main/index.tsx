@@ -1,17 +1,26 @@
 // styles
+import { Button, MainContainer, MainContent } from "./styles";
 
-import { MainContainer, MainContent } from "./styles";
-import { Button } from "../shared/button";
+//components
+import useModal from "../../hooks/modal/useModal";
+import Modal from "../shared/modal";
 
+export function Main() {
+  const { isOpen, toggle } = useModal();
 
-export function Main(){
-    return(
-      <MainContainer>
-        <MainContent>
-          <h1>Create a wallet</h1>
-          <p>Create a your wallet with security</p>
-          <Button style={{ background: "#fffff"}}>Create a new wallet</Button>
-        </MainContent>
-      </MainContainer>
-    );
+  return (
+    <MainContainer>
+      <MainContent>
+        <h1>Create a wallet</h1>
+        <p>Create a your wallet with security</p>
+        <Button style={{ background: "#fffff" }} onClick={toggle}>
+          Create a new wallet
+        </Button>
+      </MainContent>
+
+      <Modal isOpen={isOpen} toggle={toggle}>
+        <h1>Hello</h1>
+      </Modal>
+    </MainContainer>
+  );
 }

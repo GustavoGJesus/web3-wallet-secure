@@ -20,6 +20,21 @@ export const MainContent = styled.div`
   gap: 30px;
 
   h1{
-      color: var(--green);
+      color: var(--white);
   }
+`;
+
+export const Button = styled.button`
+  padding: 25px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+
+  font-family: Fira Code;
+  font-size: 15px;
+  color: var(--black);
+
+  background: var(--green);
+  border-radius: 30px;
+  font-weight: 600;
 `;
