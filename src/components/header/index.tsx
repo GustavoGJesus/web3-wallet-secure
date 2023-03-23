@@ -23,19 +23,25 @@ export function Header({ address, private_key }: HeaderProps) {
       <HeaderContent>
         <h1>secure wallet</h1>
 
-        <ContainerAddress>
-          <Button
-            onClick={toggle}
-            style={{ background: "#cb3837", color: "#fff" }}
-          >
-            Recovery Pharse
-          </Button>
-          <Divider />
-          <p>
-            {" "}
-            <AiOutlineUser /> {address}
-          </p>
-        </ContainerAddress>
+        {
+        address && 
+          <>
+            <ContainerAddress>
+              <Button
+                onClick={toggle}
+                style={{ background: "#cb3837", color: "#fff" }}
+              >
+                Recovery Pharse
+              </Button>
+              <Divider />
+              <p>
+                {" "}
+                <AiOutlineUser /> {address}
+              </p>
+            </ContainerAddress>
+          </>
+
+        }
       </HeaderContent>
 
       <Modal isOpen={isOpen} toggle={toggle}>
