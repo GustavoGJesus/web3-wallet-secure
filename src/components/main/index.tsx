@@ -21,6 +21,7 @@ import { Header } from "../header";
 // images
 import walletSecure from "../../assets/wallet-secure.png";
 import { createdWallet } from "../../utils/wallet";
+// import { stringify } from "querystring";
 
 export function Main() {
   const [password, setPassword] = useState<string | any>();
@@ -31,6 +32,7 @@ export function Main() {
   const [txt, setTxt] = useState<number>();
   const [network, setNetwork] = useState<boolean>();
   const [sucess, setSucess] = useState<boolean>();
+  const [message, setMessage] = useState<string>("");
 
   const { isOpen, toggle } = useModal();
 
@@ -41,13 +43,18 @@ export function Main() {
   function createWallet() {
     const wallet = createdWallet();
 
-    setWallet(wallet.privateKey);
-    setWalletAddress(wallet.address);
-    setPharse(wallet.mnemonic?.phrase);
-    setSucess(true);
-    setNetwork(false);
+    if (password !== undefined) {
+      setWallet(wallet.privateKey);
+      setWalletAddress(wallet.address);
+      setPharse(wallet.mnemonic?.phrase);
+      setSucess(true);
+      setNetwork(false);
 
-    toggle();
+      toggle();
+    } else {
+      setMessage("Invalid Password");
+    }
+
   }
 
   // function getWalletsSave() {
@@ -157,6 +164,7 @@ export function Main() {
               id="password"
               onChange={handleChange}
             />
+            <p>{message}</p>
           </div>
 
           <Button
