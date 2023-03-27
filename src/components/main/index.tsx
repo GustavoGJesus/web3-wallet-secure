@@ -1,10 +1,17 @@
 // styles
-import { Button, ContainerBalance, ContentBalance, Input, MainContainer, MainContent } from "./styles";
+import {
+  Button,
+  ContainerBalance,
+  ContentBalance,
+  Input,
+  MainContainer,
+  MainContent,
+} from "./styles";
 
 //components
 import useModal from "../../hooks/modal/useModal";
 import Modal from "../shared/modal";
-import { Wallet, providers, utils } from "ethers";
+import { providers, utils } from "ethers";
 import { useState } from "react";
 
 // libs
@@ -13,38 +20,35 @@ import { Header } from "../header";
 
 // images
 import walletSecure from "../../assets/wallet-secure.png";
+import { createdWallet } from "../../utils/wallet";
 
 export function Main() {
-  const [ password, setPassword ] = useState<any>();
-  const [ wallet, setWallet ] = useState<any>();
-  const [ pharse, setPharse ] = useState<any>();
+  const [password, setPassword] = useState<any>();
+  const [wallet, setWallet] = useState<any>();
+  const [pharse, setPharse] = useState<any>();
   const [walletAddress, setWalletAddress] = useState<string>("");
   const [balance, setBalance] = useState<string>();
+  const [txt, setTxt] = useState<number>();
   const [network, setNetwork] = useState<boolean>();
   const [sucess, setSucess] = useState<boolean>();
 
   const { isOpen, toggle } = useModal();
 
-  function handleChange(event: any){
+  function handleChange(event: any) {
     setPassword(event?.target.value);
-  };
+  }
 
   function createWallet() {
-    const newWallet = Wallet.createRandom();
-    // const newWalletJson = newWallet.toJSON();
+    const wallet = createdWallet();
+    console.log(wallet.address);
 
-    // async function encryptWallet(){
-    //   const encryptedWallet = await newWallet.encrypt(password);
-    // }
-
-    setWallet(newWallet.privateKey);
-    setWalletAddress(newWallet.address);
-    setPharse(newWallet.mnemonic?.phrase);
+    setWallet(wallet.privateKey);
+    setWalletAddress(wallet.address);
+    setPharse(wallet.mnemonic?.phrase);
     setSucess(true);
     setNetwork(false);
 
-    // encryptWallet();
-    toggle()
+    toggle();
   }
 
   async function getData() {
@@ -52,8 +56,10 @@ export function Main() {
       "https://mainnet.infura.io/v3/2616c45ad6ea49d0a64415ae2e911925"
     );
     const balance = utils.formatEther(await provider.getBalance(walletAddress));
+    const txtCount = await provider.getTransactionCount(walletAddress);
 
     setBalance(balance);
+    setTxt(txtCount);
     setSucess(true);
     setNetwork(true);
   }
@@ -112,6 +118,7 @@ export function Main() {
                     </h3>
                     <p>Balance available</p>
                     <h4>{balance} ETH</h4>
+                    <h4>{txt} Txns</h4>
                   </ContentBalance>
                 </>
               )}
@@ -144,7 +151,7 @@ export function Main() {
           </div>
 
           <Button
-            onClick={() => createWallet()}
+            onClick={createWallet}
             style={{ padding: "15px", fontSize: "13px", color: "#FFFFFF" }}
           >
             Create wallet

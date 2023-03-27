@@ -1,9 +1,9 @@
-import { css } from '@emotion/react';
+import { css } from "@emotion/react";
 
 export const MediaQuerys = {
   sm: "@media (max-width: 768px)",
-  md: "@media (max-width: 1024px)"
-}
+  md: "@media (max-width: 1024px)",
+};
 
 export const GlobalStyles = css`
   :root {

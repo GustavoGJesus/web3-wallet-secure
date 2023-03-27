@@ -4,7 +4,6 @@ import { Box, Container } from "./styles";
 
 // styles
 
-
 // interfaces
 interface ModalType {
   children?: ReactNode;

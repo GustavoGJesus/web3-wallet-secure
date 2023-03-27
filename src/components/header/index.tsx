@@ -1,25 +1,30 @@
 // styles
 // import { Button } from "../shared/button";
-import { ContainerAddress, ContainerData, Divider, HeaderContainer, HeaderContent } from "./styles";
+import {
+  ContainerAddress,
+  ContainerData,
+  Divider,
+  HeaderContainer,
+  HeaderContent,
+} from "./styles";
 
 // libs
-import {AiOutlineUser } from 'react-icons/ai'
+import { AiOutlineUser } from "react-icons/ai";
 import Modal from "../shared/modal";
 import useModal from "../../hooks/modal/useModal";
 import { Button, Input } from "../main/styles";
 import { useState } from "react";
 
 //images
-import  logo from "../../assets/logo.png"
+import logo from "../../assets/logo.png";
 
-// types 
+// types
 interface HeaderProps {
   password: string;
   address: string;
   private_key?: string;
   pharse_recovery?: string;
 }
-
 
 export function Header({
   address,
@@ -28,8 +33,8 @@ export function Header({
   password,
 }: HeaderProps) {
   const [confirmPassword, setConfirmPassword] = useState<any>();
-  const [ showData, setShowData ] = useState<boolean>();
-  const [ message, setMessage ] = useState<string>('');
+  const [showData, setShowData] = useState<boolean>();
+  const [message, setMessage] = useState<string>("");
 
   const { isOpen, toggle } = useModal();
 
@@ -37,14 +42,14 @@ export function Header({
     setConfirmPassword(event?.target.value);
   }
 
-  function handleConfirmPassword(){
+  function handleConfirmPassword() {
     if (confirmPassword === password) {
       setShowData(true);
     } else {
       setShowData(false);
-      setMessage('Invalid password');
+      setMessage("Invalid password");
     }
-  } 
+  }
 
   return (
     <>
