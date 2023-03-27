@@ -21,7 +21,7 @@ import { Header } from "../header";
 // images
 import walletSecure from "../../assets/wallet-secure.png";
 import { createdWallet } from "../../utils/wallet";
-// import { stringify } from "querystring";
+
 
 export function Main() {
   const [password, setPassword] = useState<string | any>();
@@ -56,16 +56,6 @@ export function Main() {
     }
 
   }
-
-  // function getWalletsSave() {
-  //   return JSON.parse(localStorage.getItem("@wallets:wallet-secure") as string);
-  // }
-
-  // const walletSave = JSON.parse(
-  //   localStorage.getItem("@wallets:wallet-secure") as string
-  // );
-
-  // console.log(walletSave);
 
   async function getData() {
     const provider = new providers.JsonRpcProvider(
