@@ -1,5 +1,5 @@
 // styles
-import { Button, Input, MainContainer, MainContent } from "./styles";
+import { Button, ContainerBalance, ContentBalance, Input, MainContainer, MainContent } from "./styles";
 
 //components
 import useModal from "../../hooks/modal/useModal";
@@ -29,15 +29,13 @@ export function Main() {
     setPassword(event?.target.value);
   };
 
-  console.log(password);
-
   function createWallet() {
     const newWallet = Wallet.createRandom();
     // const newWalletJson = newWallet.toJSON();
 
-    async function encryptWallet(){
-      const encryptedWallet = await newWallet.encrypt(password);
-    }
+    // async function encryptWallet(){
+    //   const encryptedWallet = await newWallet.encrypt(password);
+    // }
 
     setWallet(newWallet.privateKey);
     setWalletAddress(newWallet.address);
@@ -45,9 +43,7 @@ export function Main() {
     setSucess(true);
     setNetwork(false);
 
-    console.log(newWallet.mnemonic?.phrase);
-
-    encryptWallet();
+    // encryptWallet();
     toggle()
   }
 
@@ -105,20 +101,20 @@ export function Main() {
           )}
 
           {sucess && (
-            <>
+            <ContainerBalance>
               {/* <h2>{walletAddress}</h2> */}
-              <Button onClick={getData}>Get Balance</Button>
-
               {network && (
-                <>
+                <ContentBalance>
                   <h3>
                     {" "}
                     <FaEthereum /> Ethereum Sepolia
                   </h3>
-                  <h3>{balance}</h3>
-                </>
+                  <h4>{balance} ETH</h4>
+                </ContentBalance>
               )}
-            </>
+              <Button onClick={getData}>Get Balance</Button>
+
+            </ContainerBalance>
           )}
         </MainContent>
 

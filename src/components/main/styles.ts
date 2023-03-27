@@ -52,3 +52,43 @@ export const Input = styled.input`
 
   font-family: Fira Code;
 `;
+
+export const ContainerBalance = styled.div`
+  width: 500px;
+  height: 700px;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 50px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 50px;
+  padding: 20px;
+
+  border-radius: 20px;
+  background: #2b2c37;
+`;
+
+export const ContentBalance = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+
+  justify-content: center;
+  align-items: center;
+
+  h3 {
+    font-weight: 700;
+    font-size: 20px;
+
+    color: #d8d8d9;
+  }
+
+  h4{
+    font-size: 40px;
+  }
+`;
