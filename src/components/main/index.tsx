@@ -50,6 +50,16 @@ export function Main() {
     toggle();
   }
 
+  // function getWalletsSave() {
+  //   return JSON.parse(localStorage.getItem("@wallets:wallet-secure") as string);
+  // }
+
+  // const walletSave = JSON.parse(
+  //   localStorage.getItem("@wallets:wallet-secure") as string
+  // );
+
+  // console.log(walletSave);
+
   async function getData() {
     const provider = new providers.JsonRpcProvider(
       "https://mainnet.infura.io/v3/2616c45ad6ea49d0a64415ae2e911925"
