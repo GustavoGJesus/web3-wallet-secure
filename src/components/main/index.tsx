@@ -40,7 +40,6 @@ export function Main() {
 
   function createWallet() {
     const wallet = createdWallet();
-    console.log(wallet.address);
 
     setWallet(wallet.privateKey);
     setWalletAddress(wallet.address);
