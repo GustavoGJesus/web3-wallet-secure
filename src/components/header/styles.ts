@@ -46,7 +46,8 @@ export const ContainerAddress = styled.div`
     font-weight: 700;
 
     color: #487ae8;
-    background: var(--black-600);
+    /* background: var(--black-600); */
+    border: 1px solid var(--white);
     padding: 8px;
 
     border-radius: 25px;
