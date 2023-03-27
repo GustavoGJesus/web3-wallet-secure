@@ -7,9 +7,9 @@ export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
 
-  height: 110px;
-  padding: 15px;
-  border-bottom: 1px solid var(--white);
+  height: auto;
+  padding: 25px 50px 25px 50px;
+  /* border-bottom: 1px solid var(--white); */
 
   ${MediaQuerys.md}{
     flex-direction: column;
@@ -41,11 +41,11 @@ export const ContainerAddress = styled.div`
   display: flex;
   margin-left: 0 auto;
 
-  p{
+  p {
     display: flex;
     font-weight: 700;
 
-    color: var(--green);
+    color: #487ae8;
     background: var(--black-600);
     padding: 8px;
 
@@ -53,4 +53,17 @@ export const ContainerAddress = styled.div`
     justify-content: center;
     align-items: center;
   }
+
+  ${MediaQuerys.md} {
+    flex-direction: column;
+    gap: 20px;
+  }
+`;
+
+export const ContainerData = styled.div`
+  width: 100%;
+  padding: 5px;
+  border: 1px solid var(--red);
+
+  color: var(--white);
 `;
