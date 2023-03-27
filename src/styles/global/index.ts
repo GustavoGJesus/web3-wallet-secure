@@ -7,9 +7,9 @@ export const MediaQuerys = {
 
 export const GlobalStyles = css`
   :root {
-    --white: #ffffff;
-    --black: #000000;
-    --black-600: #2B2C37;
+    --white: #d8d8d9;
+    --black: #0e111c;
+    --black-600: #2b2c37;
 
     --green: #50ff8c;
     --red: #cb3837;
@@ -17,17 +17,19 @@ export const GlobalStyles = css`
 
   *,
   *::before,
-  *::after{
+  *::after {
     padding: 0;
     margin: 0;
 
     box-sizing: border-box;
   }
 
-  body{
+  body {
     font-family: "Fira Code", sans-serif;
     background: var(--black);
 
     color: var(--white);
+    overflow-y: hidden;
+    overflow-x: hidden;
   }
 `;

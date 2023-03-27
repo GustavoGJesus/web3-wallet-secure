@@ -32,9 +32,9 @@ export const Button = styled.button`
 
   font-family: Fira Code;
   font-size: 15px;
-  color: var(--black);
+  color: #487ae8;
 
-  background: var(--green);
+  background: #203159;
   border-radius: 30px;
   font-weight: 600;
 `;
