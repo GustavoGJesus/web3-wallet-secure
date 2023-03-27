@@ -1,5 +1,5 @@
 // libs
-import { Wallet, providers, utils } from "ethers";
+import { Wallet } from "ethers";
 
 export function createdWallet( ) {
     const newWallet = Wallet.createRandom();
