@@ -11,8 +11,13 @@ import { useState } from "react";
 import { FaEthereum } from "react-icons/fa";
 import { Header } from "../header";
 
+// images
+import walletSecure from "../../assets/wallet-secure.png";
+
 export function Main() {
+  const [ password, setPassword ] = useState<any>();
   const [ wallet, setWallet ] = useState<any>();
+  const [ pharse, setPharse ] = useState<any>();
   const [walletAddress, setWalletAddress] = useState<string>("");
   const [balance, setBalance] = useState<string>();
   const [network, setNetwork] = useState<boolean>();
@@ -20,46 +25,83 @@ export function Main() {
 
   const { isOpen, toggle } = useModal();
 
+  function handleChange(event: any){
+    setPassword(event?.target.value);
+  };
+
+  console.log(password);
+
   function createWallet() {
     const newWallet = Wallet.createRandom();
+    // const newWalletJson = newWallet.toJSON();
+
+    async function encryptWallet(){
+      const encryptedWallet = await newWallet.encrypt(password);
+    }
 
     setWallet(newWallet.privateKey);
     setWalletAddress(newWallet.address);
+    setPharse(newWallet.mnemonic?.phrase);
     setSucess(true);
     setNetwork(false);
 
-    console.log(newWallet);
-    console.log(walletAddress);
+    console.log(newWallet.mnemonic?.phrase);
 
-    toggle();
+    encryptWallet();
+    toggle()
   }
 
   async function getData() {
     const provider = new providers.JsonRpcProvider(
       "https://mainnet.infura.io/v3/2616c45ad6ea49d0a64415ae2e911925"
     );
-
     const balance = utils.formatEther(await provider.getBalance(walletAddress));
+
     setBalance(balance);
     setSucess(true);
     setNetwork(true);
-
-    console.log(balance);
   }
 
   return (
     <>
-      <Header address={walletAddress} private_key={wallet} />
+      <Header
+        address={walletAddress}
+        private_key={wallet}
+        pharse_recovery={pharse}
+        password={password}
+      />
       <MainContainer>
         <MainContent>
           {!sucess && (
-            <>
-              <h1>Create a wallet</h1>
-              <p>Create a your wallet with security</p>
-              <Button style={{ background: "#fffff" }} onClick={toggle}>
-                Create a new wallet
-              </Button>
-            </>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <div style={{ display: "grid", gap: "20px", width: "30%" }}>
+                <p>Welcome to the,</p>
+                <h1
+                  style={{
+                    fontSize: "50px",
+                    fontWeight: 700,
+                    color: "#ffffff",
+                  }}
+                >
+                  Secure Wallet
+                </h1>
+                <p>
+                  Create your end-to-end encrypted wallet and own your key to
+                  the world of cryptocurrencies
+                </p>
+                <Button onClick={toggle}>Create a new wallet</Button>
+              </div>
+
+              <div>
+                <img src={walletSecure} style={{ width: "400px" }} alt="" />
+              </div>
+            </div>
           )}
 
           {sucess && (
@@ -90,17 +132,22 @@ export function Main() {
               style={{
                 opacity: "0.5",
                 fontSize: "16px",
-                color: "var(--green)",
+                color: "#487ae8",
               }}
             >
               Wallet password
             </p>
-            <Input type="password" placeholder="Password" />
+            <Input
+              type="password"
+              placeholder="Password"
+              id="password"
+              onChange={handleChange}
+            />
           </div>
 
           <Button
             onClick={() => createWallet()}
-            style={{ padding: "15px", fontSize: "13px" }}
+            style={{ padding: "15px", fontSize: "13px", color: "#FFFFFF" }}
           >
             Create wallet
           </Button>
