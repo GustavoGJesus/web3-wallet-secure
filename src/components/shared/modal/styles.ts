@@ -5,7 +5,7 @@ import { MediaQuerys } from "../../../styles/global";
 
 export const Container = styled.div`
   z-index: 9999;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   position: absolute;
   top: 0;
@@ -19,13 +19,13 @@ export const Box = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background: var(--black-600);
+  background: #0e111c;
   color: var(--white);
   font-weight: 600;
   justify-content: center;
-  /* align-items: center; */
+  align-items: left;
   width: 500px;
   height: auto;
-  padding: 2rem;
+  padding: 20px;
   border-radius: 1rem;
 `;
