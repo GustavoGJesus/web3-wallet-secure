@@ -69,7 +69,9 @@ export const ContainerBalance = styled.div`
   padding: 20px;
 
   border-radius: 20px;
-  background: #2b2c37;
+  background: transparent;
+
+  border: 1px solid #D8D8D9;
 `;
 
 export const ContentBalance = styled.div`
