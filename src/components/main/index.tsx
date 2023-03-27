@@ -12,7 +12,7 @@ import {
 import useModal from "../../hooks/modal/useModal";
 import Modal from "../shared/modal";
 import { providers, utils } from "ethers";
-import { useState } from "react";
+import React, { useState } from "react";
 
 // libs
 import { FaEthereum } from "react-icons/fa";
@@ -23,9 +23,9 @@ import walletSecure from "../../assets/wallet-secure.png";
 import { createdWallet } from "../../utils/wallet";
 
 export function Main() {
-  const [password, setPassword] = useState<any>();
-  const [wallet, setWallet] = useState<any>();
-  const [pharse, setPharse] = useState<any>();
+  const [password, setPassword] = useState<string | any>();
+  const [wallet, setWallet] = useState<{} | any>();
+  const [pharse, setPharse] = useState<string>();
   const [walletAddress, setWalletAddress] = useState<string>("");
   const [balance, setBalance] = useState<string>();
   const [txt, setTxt] = useState<number>();
@@ -34,7 +34,7 @@ export function Main() {
 
   const { isOpen, toggle } = useModal();
 
-  function handleChange(event: any) {
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     setPassword(event?.target.value);
   }
 

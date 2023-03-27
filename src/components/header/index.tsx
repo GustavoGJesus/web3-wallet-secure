@@ -32,7 +32,7 @@ export function Header({
   pharse_recovery,
   password,
 }: HeaderProps) {
-  const [confirmPassword, setConfirmPassword] = useState<any>();
+  const [confirmPassword, setConfirmPassword] = useState<string>();
   const [showData, setShowData] = useState<boolean>();
   const [message, setMessage] = useState<string>("");
 
