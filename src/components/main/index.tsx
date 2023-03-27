@@ -104,16 +104,18 @@ export function Main() {
             <ContainerBalance>
               {/* <h2>{walletAddress}</h2> */}
               {network && (
-                <ContentBalance>
-                  <h3>
-                    {" "}
-                    <FaEthereum /> Ethereum Sepolia
-                  </h3>
-                  <h4>{balance} ETH</h4>
-                </ContentBalance>
+                <>
+                  <ContentBalance>
+                    <h3>
+                      {" "}
+                      <FaEthereum /> Ethereum Sepolia
+                    </h3>
+                    <p>Balance available</p>
+                    <h4>{balance} ETH</h4>
+                  </ContentBalance>
+                </>
               )}
-              <Button onClick={getData}>Get Balance</Button>
-
+              {!network && <Button onClick={getData}>Get Balance</Button>}
             </ContainerBalance>
           )}
         </MainContent>
